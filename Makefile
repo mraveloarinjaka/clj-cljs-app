@@ -3,13 +3,13 @@
 all: dev
 
 repl:
-	clojure -A:cljs:dev clj-repl
+	cmd-clj -A:cljs:dev clj-repl
 
 dev:
-	clojure -A:cljs:dev clj-run build/run
+	cmd-clj -A:cljs:dev clj-run build/run
 
 http:
-	cd resources/public && python -m SimpleHTTPServer
+	cd resources/public && python -m http.server 8080
 
 js-deps:
 	rm -rf .node_modules .shadow-cljs && npm install
@@ -19,8 +19,8 @@ clean:
 
 release-cljs:
 	@echo "Build release js"
-	clojure -A:cljs release app --config-merge '{:output-dir "target/cljs"}'
+	cmd-clj -A:cljs release app --config-merge '{:output-dir "target/cljs"}'
 
 debug-cljs:
 	@echo "Build release debug js"
-	clojure -A:cljs release app --debug --config-merge '{:output-dir "target/cljs"}'
+	cmd-clj -A:cljs release app --debug --config-merge '{:output-dir "target/cljs"}'
