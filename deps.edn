@@ -1,5 +1,6 @@
 {:paths ["src" "resources"]
  :deps {cljs-http/cljs-http {:mvn/version "0.1.46"}
+		  clj-http/clj-http {:mvn/version "3.11.0"}
         org.clojure/core.async {:mvn/version "1.3.610"}}
 
  :aliases
