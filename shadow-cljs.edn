@@ -1,7 +1,8 @@
 {:deps true ;; deps come from deps.edn
  :nrepl
- {:port 9991}
-
+ {:port 9991
+  :middleware [refactor-nrepl.middleware/wrap-refactor]}
+ :dev-http {8000 "resources/public"}
  :build-defaults
  {:output-dir      "resources/public/cljs"
   :asset-path      "/cljs"
